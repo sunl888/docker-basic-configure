@@ -19,7 +19,7 @@ services:
       networks:
         - app_env
       ports:
-        - "8088:80"
+        - "8082:80"
 
 networks:
   app_env:
