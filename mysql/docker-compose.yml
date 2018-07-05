@@ -14,6 +14,7 @@ services:
   phpmyadmin:
      image: phpmyadmin/phpmyadmin
      container_name: phpmyadmin
+     restart: always
      ports:
        - "8081:80"
      environment:

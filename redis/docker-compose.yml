@@ -10,6 +10,7 @@ services:
   phpredisadmin:
       image: wqer/mini-phpredisadmin
       container_name: phpredisadmin
+      restart: always
       environment:
         - ADMIN_USER=admin
         - ADMIN_PASS=admin
