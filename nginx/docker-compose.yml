@@ -9,11 +9,10 @@ services:
       - ./conf/sites-available/:/etc/nginx/sites-available/
       # 這裡需要根據實際情況修改
       - /home/sunlong/projects/php/unmanned_shelf:/var/www/unmanned_shelf:ro
-      - /home/sunlong/projects/apidocs/unmanned_shelf-doc:/var/www/unmanned_shelf-doc:ro
     networks:
-      - app_env
+      - app_net
 
 networks:
-  app_env:
+  app_net:
     external:
-      name: app_env
+      name: app_net

@@ -3,18 +3,20 @@ services:
   mysql:
     image: mysql:5.7
     container_name: mysql
-    restart: always
+    #restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
     networks:
-      - app_env
+      - app_net
     volumes:
       - ./conf:/etc/mysql/conf.d
+    ports:
+      - "3306:3306"
 
   phpmyadmin:
      image: phpmyadmin/phpmyadmin
      container_name: phpmyadmin
-     restart: always
+     #restart: always
      ports:
        - "8081:80"
      environment:
@@ -23,9 +25,9 @@ services:
        - PMA_USER=root
        - PMA_PASSWORD=root
      networks:
-       - app_env
+       - app_net
       
 networks:
-  app_env:
+  app_net:
     external:
-      name: app_env
+      name: app_net

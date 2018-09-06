@@ -3,25 +3,23 @@ services:
   redis:
     image: redis:alpine
     container_name: redis
-    restart: always
     networks:
-      - app_env
+      - app_net
 
   phpredisadmin:
-      image: wqer/mini-phpredisadmin
-      container_name: phpredisadmin
-      restart: always
+      image: wqer/mini-redisadmin
+      container_name: redisAdmin
       environment:
         - ADMIN_USER=admin
         - ADMIN_PASS=admin
         - REDIS_1_HOST=redis
         - REDIS_1_PORT=6379
       networks:
-        - app_env
+        - app_net
       ports:
         - "8082:80"
 
 networks:
-  app_env:
+  app_net:
     external:
-      name: app_env
+      name: app_net
