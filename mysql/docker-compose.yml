@@ -5,7 +5,7 @@ services:
     container_name: mysql
     #restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: sunlong0717
     networks:
       - app_net
     volumes:
@@ -23,7 +23,7 @@ services:
        - PMA_ARBITRARY=1
        - PMA_HOST=mysql
        - PMA_USER=root
-       - PMA_PASSWORD=root
+       - PMA_PASSWORD=sunlong0717
      networks:
        - app_net
       
