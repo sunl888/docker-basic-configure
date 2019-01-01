@@ -1,0 +1,20 @@
+version: "3"
+services:
+  minio:
+    image: minio/minio
+    restart: always
+    volumes:
+      - ./data:/export
+    environment:
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY}
+    command: server /export
+    networks:
+      - app_net
+    ports:
+      - "9000:9000"
+
+networks:
+  app_net:
+    external:
+      name: app_net

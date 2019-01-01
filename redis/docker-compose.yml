@@ -1,23 +1,27 @@
 version: "3"
 services:
   redis:
+    restart: always
     image: redis:alpine
     container_name: redis
     networks:
       - app_net
+    ports:
+      - "6379:6379"
 
   phpredisadmin:
-      image: wqer/mini-redisadmin
-      container_name: redisAdmin
-      environment:
-        - ADMIN_USER=admin
-        - ADMIN_PASS=admin
-        - REDIS_1_HOST=redis
-        - REDIS_1_PORT=6379
-      networks:
-        - app_net
-      ports:
-        - "8082:80"
+    restart: always
+    image: wqer/mini-redisadmin
+    container_name: redisAdmin
+    environment:
+      - ADMIN_USER=admin
+      - ADMIN_PASS=admin
+      - REDIS_1_HOST=redis
+      - REDIS_1_PORT=6379
+    networks:
+      - app_net
+    ports:
+      - "8082:80"
 
 networks:
   app_net:

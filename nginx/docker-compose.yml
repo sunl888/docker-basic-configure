@@ -2,17 +2,16 @@ version: "3"
 services:
   nginx:
     image: nginx:1.13-alpine
-    ports:
-      - "8000:8080"
-      - "8001:8085"
     volumes:
       - ./conf/nginx.conf:/etc/nginx/nginx.conf
       - ./conf/sites-available/:/etc/nginx/sites-available/
-      # 這裡需要根據實際情況修改
-      - /home/sunlong/projects/php/unmanned_shelf:/var/www/unmanned_shelf:ro
-      - /home/sunlong/projects/php/report2018:/var/www/report2018:ro
+      #- /home/sunlong/projects/php/unmanned_shelf:/var/www/unmanned_shelf:ro
+      - /home/sunlong/projects/php/jiegao:/var/www/jiegao:ro
+      #- /home/sunlong/projects/html/forum:/var/www/forum:ro
     networks:
       - app_net
+    ports:
+      - "8088:8088"
 
 networks:
   app_net:
