@@ -2,3 +2,4 @@
 /.vscode
 mysql/data
 minio/data
+/minio/.env

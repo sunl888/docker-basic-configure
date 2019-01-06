@@ -1,0 +1,3 @@
+sql-mode="STRICT_ALL_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,only_full_group_by"
+default_authentication_plugin=mysql_native_password
+report-host=mysql-cluster-1

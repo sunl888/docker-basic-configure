@@ -1,0 +1,21 @@
+version: "3"
+services:
+  imageproxy:
+    image: willnorris/imageproxy
+    entrypoint:
+      - /go/bin/imageproxy
+      - -addr
+      - 0.0.0.0:8080
+      - -baseURL
+      - http://minio:9000
+      - -cache
+      - memory:200:4h
+    ports:
+      - "9001:8080"
+    networks:
+      - app_net
+
+networks:
+  app_net:
+    external:
+      name: app_net

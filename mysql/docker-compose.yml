@@ -1,25 +1,38 @@
 version: "3"
 services:
-  mysql:
+  #  mysql-master:
+  #    image: mysql:latest
+  #    container_name: mysql-master
+  #    restart: always
+  #    environment:
+  #      MYSQL_ROOT_PASSWORD: sunlong0717
+  #    volumes:
+  #      - ./conf/master:/etc/mysql/conf.d
+  #    networks:
+  #      - app_net
+  #    ports:
+  #      - 3306:3306
+
+  mysql-5.7:
     image: mysql:5.7
-    container_name: mysql
+    container_name: mysql-cluster-1
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: sunlong0717
     volumes:
-      - ./conf:/etc/mysql/conf.d
+      - ./conf/cluster:/etc/mysql/conf.d
     networks:
       - app_net
     ports:
-      - "3306:3306"
+      - 3306:3306
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
     container_name: phpmyadmin
     restart: always
     environment:
       PMA_ARBITRARY: 1
-      PMA_HOST: mysql
+      PMA_HOSTS: mysql-5.7 # mysql-master, mysql-cluster-1
       PMA_USER: root
       PMA_PASSWORD: sunlong0717
     networks:

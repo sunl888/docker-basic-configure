@@ -2,6 +2,7 @@ version: "3"
 services:
   minio:
     image: minio/minio
+    container_name: minio
     restart: always
     volumes:
       - ./data:/export
