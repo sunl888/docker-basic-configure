@@ -3,7 +3,7 @@ docker 基礎配置
 
 ## 安装
    1. 使用 `docker network create app_net` 创建一个内部网络
-   2. 在对应的目录使用 `dokcer-compose up -d` 即可创建对应服务
+   2. 在对应的目录使用 `docker-compose up -d` 即可创建对应服务
 
 ## Minio
  访问`minio`: http://localhost:9000
